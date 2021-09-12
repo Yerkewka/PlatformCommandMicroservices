@@ -1,0 +1,16 @@
+# Docker
+
+docker build -t yerkewka/platformservice .
+docker run -d --name platformservice -p 8080:80 yerkewka/platformservice
+docker push yerkewka/platformservice
+
+# Kubernetes
+kubectl apply -f platform-depl.yaml
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl get secret
+kubectl get pvc
+kubectl rollout restart deployment platforms-depl 
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+kubectl delete deployment platforms-depl
